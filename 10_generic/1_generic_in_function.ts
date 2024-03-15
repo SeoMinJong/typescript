@@ -54,9 +54,15 @@ function instantiator<T extends {new (...args: any[]) : {}}>(constructor: T, ...
     return new constructor(...args);
 }
 
-const idol1 = instantiator(Idol,'name', 19);
+function instantiator2<T extends {new (...args: any[]) : {name:any, age:any}}>(constructor: T, ...args: any[]){
+    return new constructor(...args);
+}
+
+const idol1 = instantiator2(Idol,'name', 19);
 const car1 = instantiator(Car,'name', '19');
 console.log(idol1);
+console.log(idol1.age);
+console.log(idol1.name);
 console.log(car1);
 // console.log(idol1.age);
 // console.log(car1.codeName);
