@@ -1,5 +1,6 @@
 /**
  * Partial Type
+ * 오브젝트의 값을 변경할 때 내부 프로퍼티에 해당하는 값만을 변경
  */
 
 interface Idol{
@@ -21,8 +22,13 @@ function updateIdol(original:Idol, updates:Partial<Idol>): Idol{
     }
 }
 
-console.log(updateIdol(iu,{
-    age: 32,
+console.log('원본 결과물');
+console.log(iu)
+
+const newIu = updateIdol(iu,{
     name: 'IU',
-    // name2:'IU'
-}))
+    age: 32
+})
+
+console.log('업데이트 결과물');
+console.log(newIu)
